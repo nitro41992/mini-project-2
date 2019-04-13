@@ -26,7 +26,14 @@ class BreadTest extends TestCase
         DB::table('users')
             ->where('id', $user->id)
             ->update(['name' => 'Steve Smith']);
-        dd($user);
+        //dd($user);
         $this->assertDatabaseHas('users', ['id' => $user->id, 'name' => 'Steve Smith']);
     }
+    public function testDeleteUserTest()
+    {
+        $user = factory(User::class)->create();
+        $user->delete();
+        $this->assertDatabaseMissing('users', ['id' => $user->id]);
+    }
+
 }
