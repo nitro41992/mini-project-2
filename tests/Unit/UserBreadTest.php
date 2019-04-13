@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use \App\User;
 
-class BreadTest extends TestCase
+class UserBreadTest extends TestCase
 {
     /**
      * A basic test example.
