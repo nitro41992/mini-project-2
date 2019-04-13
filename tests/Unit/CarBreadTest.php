@@ -54,4 +54,10 @@ class CarBreadTest extends TestCase
         $makeValues = ['honda', 'toyota','ford'];
         $this->assertContains($car->make, $makeValues );
     }
+    public function testCarModelTypeTest()
+    {
+        $car = factory(Car::class)->create();
+        $this->assertIsString($car->model);
+
+    }
 }
