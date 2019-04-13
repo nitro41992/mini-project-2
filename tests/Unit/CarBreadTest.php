@@ -42,4 +42,10 @@ class CarBreadTest extends TestCase
         $this->assertLessThanOrEqual(50, $carCount);
 
     }
+    public function testCarYearTypeTest()
+    {
+        $car = factory(Car::class)->create();
+        $this->assertIsInt($car->year);
+
+    }
 }
