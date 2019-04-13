@@ -20,6 +20,13 @@ class CarBreadTest extends TestCase
         $car = factory(Car::class)->create();
         $this->assertDatabaseHas('cars', ['id' => $car->id]);
     }
-
+    public function testUpdateCarYearTest()
+    {
+        $car = factory(Car::class)->create();
+        DB::table('cars')
+            ->where('id', $car->id)
+            ->update(['year' => 2000]);
+        $this->assertDatabaseHas('cars', ['id' => $car->id, 'year' => '2000']);
+    }
 
 }
