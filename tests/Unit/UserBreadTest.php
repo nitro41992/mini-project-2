@@ -35,7 +35,7 @@ class UserBreadTest extends TestCase
         $user->delete();
         $this->assertDatabaseMissing('users', ['id' => $user->id]);
     }
-    public function testSeedCountTest()
+    public function testUserSeedCountTest()
     {
         $this->artisan('migrate:refresh');
         $this->artisan('db:seed');

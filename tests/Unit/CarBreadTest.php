@@ -34,4 +34,12 @@ class CarBreadTest extends TestCase
         $car->delete();
         $this->assertDatabaseMissing('cars', ['id' => $car->id]);
     }
+    public function testCarSeedCountTest()
+    {
+        $this->artisan('migrate:refresh');
+        $this->artisan('db:seed');
+        $carCount = DB::table('cars')->count();
+        $this->assertLessThanOrEqual(50, $carCount);
+
+    }
 }
