@@ -28,5 +28,10 @@ class CarBreadTest extends TestCase
             ->update(['year' => 2000]);
         $this->assertDatabaseHas('cars', ['id' => $car->id, 'year' => '2000']);
     }
-
+    public function testDeleteCarTest()
+    {
+        $car = factory(Car::class)->create();
+        $car->delete();
+        $this->assertDatabaseMissing('cars', ['id' => $car->id]);
+    }
 }
