@@ -35,5 +35,15 @@ class ViewsTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function testContactReturnSuccessfulTest()
+    {
+        $user = factory(User::class)->make([
+            'password' => bcrypt($password = 'i-love-laravel'),
+        ]);
+        //dd($user);
+        $response =  $this->actingAs($user, 'api')->get('/contact');
+
+        $response->assertStatus(200);
+    }
 
 }
