@@ -35,5 +35,13 @@ class BreadTest extends TestCase
         $user->delete();
         $this->assertDatabaseMissing('users', ['id' => $user->id]);
     }
+    public function testSeedCountTest()
+    {
+        $this->artisan('migrate:refresh');
+        $this->artisan('db:seed');
+        $userCount = DB::table('users')->count();
+        $this->assertLessThanOrEqual(50, $userCount);
+
+    }
 
 }
