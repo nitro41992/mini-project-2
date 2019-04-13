@@ -48,4 +48,10 @@ class CarBreadTest extends TestCase
         $this->assertIsInt($car->year);
 
     }
+    public function testCarMakeIsValidTest()
+    {
+        $car = factory(Car::class)->create();
+        $makeValues = ['honda', 'toyota','ford'];
+        $this->assertContains($car->make, $makeValues );
+    }
 }
