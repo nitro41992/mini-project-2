@@ -18,4 +18,11 @@ class ViewsTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function testLoginReturnSuccessfulTest()
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
 }
